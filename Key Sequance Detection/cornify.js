@@ -1,23 +1,5 @@
-/*
-
-    _______      ,-----.    .-------.    ,---.   .--..-./`)  ________    ____     __
-   /   __  \   .'  .-,  '.  |  _ _   \   |    \  |  |\ .-.')|        |   \   \   /  /
-  | ,_/  \__) / ,-.|  \ _ \ | ( ' )  |   |  ,  \ |  |/ `-' \|   .----'    \  _. /  '
-,-./  )      ;  \  '_ /  | :|(_ o _) /   |  |\_ \|  | `-'`"`|  _|____      _( )_ .'
-\  '_ '`)    |  _`,/ \ _/  || (_,_).' __ |  _( )_\  | .---. |_( )_   | ___(_ o _)'
- > (_)  )  __: (  '\_/ \   ;|  |\ \  |  || (_ o _)  | |   | (_ o._)__||   |(_,_)'
-(  .  .-'_/  )\ `"/  \  ) / |  | \ `'   /|  (_,_)\  | |   | |(_,_)    |   `-'  /
- `-'`-'     /  '. \_/``".'  |  |  \    / |  |    |  | |   | |   |      \      /
-   `._____.'     '-----'    ''-'   `'-'  '--'    '--' '---' '---'       `-..-'
-
-  This script has been modified by @wesbos because
-  https://twitter.com/wesbos/status/1657012836403388416
-
-*/
-
 var cornify_count = 0;
 var cornify_add = function (options) {
-  // Track how often we cornified.
   cornify_count += 1;
 
   // Prepare our lovely variables.
@@ -84,9 +66,8 @@ var cornify_add = function (options) {
   }
 
   // Construct our unicorn & rainbow request.
-  var url = `https://www.cornify.com/corns/${
-    Math.random() > 0.5 ? "r" : "u"
-  }${Math.ceil(Math.random() * 7)}.gif`;
+  var url = `https://www.cornify.com/corns/${Math.random() > 0.5 ? "r" : "u"
+    }${Math.ceil(Math.random() * 7)}.gif`;
 
   // Add younicorns if requested.
   if (options && (options.y || options.younicorns)) {
