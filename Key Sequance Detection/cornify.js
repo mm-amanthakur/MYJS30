@@ -20,9 +20,8 @@ var cornify_add = function (options) {
   div.className = "__cornify_unicorn";
   div.style.zIndex = 143143;
   div.style.outline = 0;
-  div.onclick = cornify_add; // Click for more magic.
+  div.onclick = cornify_add;
 
-  // Get the window width and height - requires some cross browser checking.
   if (typeof window.innerHeight == "number") {
     windowHeight = window.innerHeight;
     windowWidth = window.innerWidth;
@@ -35,7 +34,6 @@ var cornify_add = function (options) {
   }
 
   if (showGrandUnicorn) {
-    // Clicking 15 times summons the grand unicorn - which is centered on the screen.
     div.style.top = "50%";
     div.style.left = "50%";
     div.style.zIndex = 143143143;
@@ -47,7 +45,6 @@ var cornify_add = function (options) {
     transform += " rotate(" + Math.round(Math.random() * 10 - 5) + "deg)";
   }
 
-  // Create the image element.
   var img = document.createElement("img");
   img.style.opacity = 0;
   img.style.transition = "all .1s linear";
@@ -56,16 +53,13 @@ var cornify_add = function (options) {
     img.style.opacity = 1;
   };
 
-  // Used as a cache buster so the browser makes a new request every time instead of usign the previous, cached one.
   var currentTime = new Date();
   var submitTime = currentTime.getTime();
 
   if (showGrandUnicorn) {
-    // Caching doesn't matter for the Grand Unicorn.
     submitTime = 0;
   }
 
-  // Construct our unicorn & rainbow request.
   var url = `https://www.cornify.com/corns/${Math.random() > 0.5 ? "r" : "u"
     }${Math.ceil(Math.random() * 7)}.gif`;
 
@@ -108,14 +102,10 @@ var cornify_add = function (options) {
     img.style.webkitTransform = result;
   };
 
-  // Append our container DIV to the page.
   var body = document.getElementsByTagName("body")[0];
   body.appendChild(div);
   div.appendChild(img);
 
-  // Hooray - now we have a sparkly unicorn (or rainbow) on the page. Another cornification well done. Congrats!
-
-  // When clicking 5 times, add a custom stylesheet to make the page look awesome.
   if (cornify_count == 5) {
     var cssExisting = document.getElementById("__cornify_css");
 
@@ -134,12 +124,10 @@ var cornify_add = function (options) {
 
   cornify_updatecount();
 
-  // Trigger an event on the document.
   var event = new Event("cornify");
   document.dispatchEvent(event);
 };
 
-// Tracks how often we cornified.
 var cornify_updatecount = function () {
   var id = "__cornify_count";
   var p = document.getElementById(id);
@@ -167,7 +155,6 @@ var cornify_updatecount = function () {
     p.innerHTML = "You cornified " + cornify_count + " times!";
   }
 
-  // Stores our count in a cookie for our next session.
   cornify_setcookie("cornify", cornify_count + "", 1000);
 };
 
